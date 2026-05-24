@@ -2,7 +2,7 @@ function About(){
     return(
         <div>
             <h1>
-                About Page
+                This is About Page
             </h1>
         </div>
     )
