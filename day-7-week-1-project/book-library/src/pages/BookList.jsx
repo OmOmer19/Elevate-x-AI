@@ -91,6 +91,12 @@ function BookList(){
                         Showing {filtered.length} results
                      </p>
         </div>
+        {/* if no books found */}
+        {filtered.length === 0 && (
+            <p style={{textAlign:"center",padding:"20px",marginTop:"40px"}}>
+                No books found
+            </p>
+        )}
         
         <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:"20px",padding:"20px"}}>
             {filtered.map((book) =>(

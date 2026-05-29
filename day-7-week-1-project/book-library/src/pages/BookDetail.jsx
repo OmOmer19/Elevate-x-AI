@@ -3,11 +3,13 @@ import books from "../books"
 import { useContext } from "react"
 import { ThemeContext } from "../context/ThemeContext"
 import { useNavigate } from "react-router-dom"
+import { SavedContext } from "../context/SavedContext"
 
 function BookDetail(){
     const {bookId} = useParams()
     const navigate = useNavigate()
     const {theme} = useContext(ThemeContext)
+    const {saveBook} = useContext(SavedContext)
 
     const matched = books.find((book) => bookId == book.id)
     
@@ -69,7 +71,7 @@ function BookDetail(){
                     <button onClick={() => navigate("/books")} style={buttonStyle}>
                         ← Back to Books
                     </button>
-                    <button style={buttonStyle}>
+                    <button onClick={() => saveBook(matched)} style={buttonStyle}>
                         🔖 Save Book
                     </button>
                 </div>

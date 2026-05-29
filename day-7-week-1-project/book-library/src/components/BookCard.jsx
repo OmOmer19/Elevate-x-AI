@@ -2,9 +2,12 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 import { memo } from "react";
+import { SavedContext } from "../context/SavedContext";
+
 
 function BookCard({book}){
     const {theme} = useContext(ThemeContext)
+    const {saveBook} = useContext(SavedContext)
 
     const cardStyle = {
         backgroundColor: theme === "light" ? "#fff8f0" : "#16213e",
@@ -47,7 +50,7 @@ function BookCard({book}){
                     View Details
                 </Link>
                 {/* save button*/}
-                <button style={buttonStyle}>
+                <button onClick={() => saveBook(book)} style={buttonStyle}>
                     Save
                 </button>
             </div>
